@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "scho-PersonalProject/1.0.0": {
+        "runtime": {
+          "scho-PersonalProject.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "scho-PersonalProject/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
