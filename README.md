@@ -1,4 +1,4 @@
-# PersonalProject
+# The High Score Tracker
 
 ## Description
 The High Score tracker will allow a program to digitally keep track of high scores without the need for memorization or pen & paper!
