@@ -8,7 +8,8 @@ The High Score Tracker keeps a record of the high scores for a game. After a gam
 
 ## High-Level Design
 ### Flowchart
-![A Flowchart](Flowchart.png)
+
+![A Flowchart](flowcharts/Flowchart.png)
 
 ### Methods:
 I have broken down the program into 4 methods:
@@ -20,7 +21,7 @@ I have broken down the program into 4 methods:
 ### List LoadScoreValues(string filename)
 The scores.txt file is stored in two columns. The first column is the players name and the second column is the players score. This method loads the file and extracts the second column into a ```List<int>.```
 
-![A Flowchart] (flowcharts/loadscorevalues.png)
+![LoadScoreValue Flowchart](flowcharts/loadscorevalues.png)
 
 1. Check to see if the specified filename exists.
 2. If it does not, throw an exception stating the file cannot be loaded
@@ -34,7 +35,7 @@ The scores.txt file is stored in two columns. The first column is the players na
 ### int GetScoreValue(string score)
 This is a helper method which, given a score string of the format "name score", extracts the score value from the second column, parses it into an int value, and finally returns it.
 
-Flowchart
+![GetScoreValue Flowchart](flowcharts/getscorevalue.png)
 
 1. Split the specified score string into two strings using ' ' as a delimiter
 2. Store the result in a variable called parts
@@ -44,7 +45,7 @@ Flowchart
 ### int FindInsertionPoint(List values, int newScore)
 Given a list of score values and a newScore to insert into the high scores table, returns the index where the new score should be inserted.
 
-flowchart
+![FindInsertionPoint Flowchart](flowcharts/FindInsertionPoint.png)
 
 1. Initialize a counter variable, insertAt, to 0.
 2. Loop through each value in values
@@ -55,7 +56,7 @@ flowchart
 ### void AddScore(string name, int score, int insertAt, List scores);
 Given the name, score, insertion location, and a list of strings containing the current high scores, inserts the name and score at the specified location. Then writes the results to "scores.txt".
 
-flowchart
+![AddScore Flowchart](flowcharts/AddScore.png)
 
 1. Create a string variable entry which will be the new row to add to the high score list.
 2. Assign entry to be $"{name} {score}"
