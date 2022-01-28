@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace scho_TheHighScoreTracker
 {
@@ -11,7 +12,7 @@ namespace scho_TheHighScoreTracker
         /// </summary>
         /// <param name="filename"></param>
         /// <returns></returns>
-        static List<int> LoadScoreValues(string filename);
+        static List<int> LoadScoreValues(string filename)
         {
             // 1. Check to see if the specified filename exists.
             // 2. If it does not, throw an exception stating the file cannot be loaded
@@ -21,6 +22,13 @@ namespace scho_TheHighScoreTracker
             //     * For each line, use GetScoreValue to extract the second column as an int
             //     * Add the int to values
             // 6. Return values
+
+            if (filename)
+            {
+                list<int> = values;
+                File.ReadLines("scores.txt");
+                
+            }
             return null;
 
         }
@@ -32,13 +40,13 @@ namespace scho_TheHighScoreTracker
         /// </summary>
         /// <param name="score"></param>
         /// <returns></returns>
-        static int GetScoreValue(string score);
+        static int GetScoreValue(string score)
         {
             // 1. Split the specified score string into two strings using ' ' as a delimiter
             // 2. Store the result in a variable called parts
             // 3. Parse the second element as an int int.Parse(parts[1])
             // 4. Return the result
-            return null;
+            return -1;
         }
 
         /// <summary>
@@ -48,7 +56,7 @@ namespace scho_TheHighScoreTracker
         /// <param name="values"></param>
         /// <param name="newScore"></param>
         /// <returns></returns>
-        static int FindInsertionPoint(List<int> values, int newScore);
+        static int FindInsertionPoint(List<int> values, int newScore)
         {
             // 1. Initialize a counter variable, insertAt, to 0.
             // 2. Loop through each value in values
@@ -66,13 +74,12 @@ namespace scho_TheHighScoreTracker
         /// <param name="score"></param>
         /// <param name="insertAt"></param>
         /// <param name="scores"></param>
-        static void AddScore(String name, int score, int insertAt, List<String> scores);
+        static void AddScore(String name, int score, int insertAt, List<String> scores)
         {
             //1. Create a string variable entry which will be the new row to add to the high score list.
             // 2. Assign entry to be $"{name} {score}"
             // 3. Insert entry into scores at the index insertAt
             // 4. Use File.WriteLines to write each line of the scores list to the file "scores.txt"
-            return null;
         }
         
 }
