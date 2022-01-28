@@ -3,13 +3,17 @@ using System.Collections.Generic; // Feedback(jcollard 2022-01-28): This allows 
 using System.IO; // Feedback(jcollard 2022-01-28): This allows us to use File
 using System.Linq; // Feedback(jcollard 2022-01-28): This allows us to convert files to lists
 
-namespace scho_TheHighScoreTracker
+namespace TheHighScoreTracker
 {
     class Program
     {
-
         static void Main(String[] args)
         {
+            if (args.Length > 0 && args[0] == "test")
+            {
+                TestAll();
+                return;
+            }
             // Feedback(jcollard 2022-01-28): 
             // Great job! Your method stubs look perfect. You should move on to
             // Part 2.2 next.
@@ -39,6 +43,21 @@ namespace scho_TheHighScoreTracker
 
         }
 
+        public static void TestAll()
+        {
+            bool testLoadScoreValues = TestLoadScoreValues.RunTest();
+            Console.WriteLine($"Test LoadScoreValues(filename): {testLoadScoreValues}");
+
+            bool testGetScoreValue = TestGetScoreValues.RunTest();
+            Console.WriteLine($"Test GetScoreValue(score): {testGetScoreValue}");
+            
+            bool testFindInsertionPoint = TestFindInsertionPoint.RunTest();
+            Console.WriteLine($"Test FindInsertionPoint(values, newScore): {testFindInsertionPoint}");
+            
+            bool testAddScore = TestAddScore.RunTest();
+            Console.WriteLine($"Test AddScore(name, score, insertAt, scores): {testAddScore}");
+        }
+
         /// <summary>
         /// The scores.txt file is stored in two columns. The first column is 
         /// the players name and the second column is the players score. This 
@@ -46,7 +65,7 @@ namespace scho_TheHighScoreTracker
         /// </summary>
         /// <param name="filename"></param>
         /// <returns></returns>
-        static List<int> LoadScoreValues(string filename)
+        public static List<int> LoadScoreValues(string filename)
         {
             // 1. Check to see if the specified filename exists.
             // 2. If it does not, throw an exception stating the file cannot be loaded
@@ -57,12 +76,12 @@ namespace scho_TheHighScoreTracker
             //     * Add the int to values
             // 6. Return values
 
-            if (filename)
-            {
-                list<int> = values;
-                File.ReadLines("scores.txt");
+            // if (filename)
+            // {
+            //     list<int> = values;
+            //     File.ReadLines("scores.txt");
                 
-            }
+            // }
             return null;
 
         }
@@ -74,7 +93,7 @@ namespace scho_TheHighScoreTracker
         /// </summary>
         /// <param name="score"></param>
         /// <returns></returns>
-        static int GetScoreValue(string score)
+        public static int GetScoreValue(string score)
         {
             // 1. Split the specified score string into two strings using ' ' as a delimiter
             // 2. Store the result in a variable called parts
@@ -90,7 +109,7 @@ namespace scho_TheHighScoreTracker
         /// <param name="values"></param>
         /// <param name="newScore"></param>
         /// <returns></returns>
-        static int FindInsertionPoint(List<int> values, int newScore)
+        public static int FindInsertionPoint(List<int> values, int newScore)
         {
             // 1. Initialize a counter variable, insertAt, to 0.
             // 2. Loop through each value in values
@@ -108,7 +127,7 @@ namespace scho_TheHighScoreTracker
         /// <param name="score"></param>
         /// <param name="insertAt"></param>
         /// <param name="scores"></param>
-        static void AddScore(String name, int score, int insertAt, List<String> scores)
+        public static void AddScore(String name, int score, int insertAt, List<String> scores)
         {
             //1. Create a string variable entry which will be the new row to add to the high score list.
             // 2. Assign entry to be $"{name} {score}"
