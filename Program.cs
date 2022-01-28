@@ -1,10 +1,44 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.Generic; // Feedback(jcollard 2022-01-28): This allows us to use List
+using System.IO; // Feedback(jcollard 2022-01-28): This allows us to use File
+using System.Linq; // Feedback(jcollard 2022-01-28): This allows us to convert files to lists
 
 namespace scho_TheHighScoreTracker
 {
     class Program
     {
+
+        static void Main(String[] args)
+        {
+            // Feedback(jcollard 2022-01-28): 
+            // Great job! Your method stubs look perfect. You should move on to
+            // Part 2.2 next.
+
+            // Below is an example of how to load the high_scores.txt file and
+            // extract the left and right columns
+
+            // This line loads the file and converts it to a list of strings
+            List<string> lines = File.ReadAllLines("high_scores.txt").ToList();
+
+            // Extract the 3rd line from the list
+            string collard = lines[2];
+
+            // Split the string into two elements
+            List<string> elems = collard.Split(" ").ToList();
+            
+            // Get the first element
+            string name = elems[0];
+
+            // Get the second element
+            string scoreString = elems[1];
+
+            // Convert the score to an integer
+            int score = int.Parse(scoreString);
+
+            Console.WriteLine($"{name} {score}");
+
+        }
+
         /// <summary>
         /// The scores.txt file is stored in two columns. The first column is 
         /// the players name and the second column is the players score. This 
@@ -46,7 +80,7 @@ namespace scho_TheHighScoreTracker
             // 2. Store the result in a variable called parts
             // 3. Parse the second element as an int int.Parse(parts[1])
             // 4. Return the result
-            return -1;
+            return -1; // Feedback(jcollard 2022-01-28): Changed from null to -1 (null is not an int)
         }
 
         /// <summary>
@@ -80,7 +114,10 @@ namespace scho_TheHighScoreTracker
             // 2. Assign entry to be $"{name} {score}"
             // 3. Insert entry into scores at the index insertAt
             // 4. Use File.WriteLines to write each line of the scores list to the file "scores.txt"
+            
+            // return null; // Feedback(jcollard 2022-01-28): cannot return
+            // anything from a void method
         }
         
-}
+    }
 }
