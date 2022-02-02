@@ -21,6 +21,7 @@ namespace TheHighScoreTracker
             {
                 // TODO(jcollard 2022-02-02): Add a message to the tester stating
                 // what went wrong.
+                Console.Error.WriteLine($"Failure: Expected the first score on the list to be 9001 but it was {scores}.");
                 return false;
             }
 
@@ -36,7 +37,7 @@ namespace TheHighScoreTracker
             {}
 
         
-            return false;
+            return true;
         }
     }
 }

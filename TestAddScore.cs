@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace TheHighScoreTracker
@@ -30,10 +31,16 @@ namespace TheHighScoreTracker
             // Then create a new one.
             File.WriteAllLines("test_add_scores.txt", initialScores);
 
-
             // Finally, call your method to test a new scenario
+            Program.AddScore("Susan", 5000, 0, initialScores);
+            if (initialScores[0] != "Susan 5000")
+            {
+                Console.Error.WriteLine($"Failure: Expected line one to be Susan 5000 but it was {"name, initialScores"}.");
+                return false;
+            }
 
-            return false;
+            
+            return true;
         }
     }
 }
