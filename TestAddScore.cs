@@ -8,16 +8,31 @@ namespace TheHighScoreTracker
 
         public static bool RunTest()
         {
-            List<int> scores = Program.LoadScoreValues("test_scores.txt");
+            // TODO(jcollard 2022-02-02): This method doesn't appear to be testing "AddScore"
 
-            if (scores.Count != 4)
+            // For add score, you want to check that when you add a score it updates a score file
+            // and adds the specified element to it. This can be done by checking that the length
+            // of the high scores list increases by 1. It can also be checked by testing if the
+            // score to be added was inserted at the correct location. This might mean you need
+            // to first create a new file containing a preset number of scores at the beginning of
+            // the test. For example:
+
+            List<string> initialScores = new List<string>();
+            initialScores.Add("BananaBoy 1000");
+            initialScores.Add("BananaBob 500");
+            initialScores.Add("BananaBill 100");
+
+            // Start by setting up the test. Delete the old test file if it exists
+            if (File.Exists("test_add_scores.txt"))
             {
-                return false;
+                File.Delete("test_add_scores.txt");
             }
-            if (scores[2] != 808)
-            {
-                return false;
-            }
+            // Then create a new one.
+            File.WriteAllLines("test_add_scores.txt", initialScores);
+
+
+            // Finally, call your method to test a new scenario
+
             return false;
         }
     }

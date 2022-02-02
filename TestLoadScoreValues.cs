@@ -11,11 +11,16 @@ namespace TheHighScoreTracker
             List<int> scores = Program.LoadScoreValues("test_scores.txt");
 
             if (scores.Count != 3){
+                // TODO(jcollard 2022-02-02): Add a message to the tester stating
+                // what went wrong. For example:
+                Console.Error.WriteLine($"Failure: Expected the list of scores to have 3 elements but it had {scores.Count}.");
                 return false;
             }
 
             if (scores[0] != 9001)
             {
+                // TODO(jcollard 2022-02-02): Add a message to the tester stating
+                // what went wrong.
                 return false;
             }
 
