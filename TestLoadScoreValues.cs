@@ -8,7 +8,16 @@ namespace TheHighScoreTracker
     {
         public static bool RunTest()
         {
-            List<int> scores = Program.LoadScoreValues("high_scores.txt");
+            List<int> scores = Program.LoadScoreValues("test_scores.txt");
+
+            if (scores.Count != 3){
+                return false;
+            }
+
+            if (scores[0] != 9001)
+            {
+                return false;
+            }
 
 
             // Tests the situation where the file does not exist
@@ -20,7 +29,6 @@ namespace TheHighScoreTracker
             }
             catch
             {}
-
 
         
             return false;
