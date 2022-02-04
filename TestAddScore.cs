@@ -39,6 +39,12 @@ namespace TheHighScoreTracker
                 return false;
             }
 
+            // TODO(jcollard 2022-02-04): A great first test!
+            // Try a few more scenarios:
+            // 1. What should happen with Program.AddScore("Joseph Collard", 50, 5, initialScores)?
+            // 2. What should happen with Program.AddScore("", 250, -5, initialScores)?
+            // 3. What should happen with Program.AddScore("Sue", 1000, 0, initialScores)?
+            
             
             return true;
         }
