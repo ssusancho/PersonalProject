@@ -44,7 +44,26 @@ namespace TheHighScoreTracker
             // 1. What should happen with Program.AddScore("Joseph Collard", 50, 5, initialScores)?
             // 2. What should happen with Program.AddScore("", 250, -5, initialScores)?
             // 3. What should happen with Program.AddScore("Sue", 1000, 0, initialScores)?
+            Program.AddScore("Joseph Collard", 50, 5, initialScores);
+            if (initialScores[5] != "JosephCollard 50" )
+            {
+                Console.Error.WriteLine($"Failure: Expected line 6 to be JosephCollard 50 but it was {"name, initialScores"}.");
+                return false;
+            }
             
+            Program.AddScore("", 250, -5, initialScores);
+            if (initialScores[-5] != "-5")
+            {
+                Console.Error.WriteLine($"Failure: Invalid insert point.");
+                return false;
+            }
+            
+            Program.AddScore("Sue", 1000, 0, initialScores);
+            if (initialScores[0] != "Sue 1000")
+            {
+                Console.Error.WriteLine($"Failure: Expected line 1 to be Sue 1000 but it was {"name, initialScores"}.");
+                return false;
+            }
             
             return true;
         }

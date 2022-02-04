@@ -75,13 +75,20 @@ namespace TheHighScoreTracker
             //     * For each line, use GetScoreValue to extract the second column as an int
             //     * Add the int to values
             // 6. Return values
+            if (filename != "high_scores.txt")
+            {
+                Console.WriteLine("No such file");
+                return ;
+            }
+            else
+            {
+                List<int> values = Program.LoadScoreValues("high_scores.txt");
+                File.ReadLines("high_scores.txt");
+                foreach
+                {
 
-            // if (filename)
-            // {
-            //     list<int> = values;
-            //     File.ReadLines("scores.txt");
-                
-            // }
+                }
+            }
             return null;
 
         }
