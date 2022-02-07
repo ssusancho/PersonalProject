@@ -84,9 +84,10 @@ namespace TheHighScoreTracker
             {
                 List<int> values = Program.LoadScoreValues("high_scores.txt");
                 File.ReadLines("high_scores.txt");
-                foreach
+                foreach 
                 {
-
+                    // GetScoreValue
+                    // result + values
                 }
             }
             return null;
@@ -106,6 +107,7 @@ namespace TheHighScoreTracker
             // 2. Store the result in a variable called parts
             // 3. Parse the second element as an int int.Parse(parts[1])
             // 4. Return the result
+            
             return -1; // Feedback(jcollard 2022-01-28): Changed from null to -1 (null is not an int)
         }
 
