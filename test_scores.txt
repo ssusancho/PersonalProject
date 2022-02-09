@@ -1,3 +1,4 @@
-Susan   9001
-Hudson  8000
-Collard 1   
+SusanSystem.Collections.Generic.List`1[System.String]
+BananaBoy 1000
+BananaBob 500
+BananaBill 100

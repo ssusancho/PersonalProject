@@ -29,7 +29,8 @@ namespace TheHighScoreTracker
                 File.Delete("test_add_scores.txt");
             }
             // Then create a new one.
-            File.WriteAllLines("test_add_scores.txt", initialScores);
+            File.WriteAllText("test_add_scores.txt", String.Join("\n", initialScores));
+            // File.WriteAllLines("test_add_scores.txt", initialScores);
 
             // Finally, call your method to test a new scenario
             Program.AddScore("Susan", 5000, 0, initialScores);
@@ -51,19 +52,17 @@ namespace TheHighScoreTracker
                 return false;
             }
             
-            Program.AddScore("", 250, -5, initialScores);
-            if (initialScores[-5] != "-5")
+            try 
             {
-                Console.Error.WriteLine($"Failure: Invalid insert point.");
+                Program.AddScore("", 250, -5, initialScores);
+                Console.Error.WriteLine($"Failure expected for insertAt -5.");
                 return false;
+            }
+            catch 
+            {
+
             }
             
-            Program.AddScore("Sue", 1000, 0, initialScores);
-            if (initialScores[0] != "Sue 1000")
-            {
-                Console.Error.WriteLine($"Failure: Expected line 1 to be Sue 1000 but it was {"name, initialScores"}.");
-                return false;
-            }
             
             return true;
         }

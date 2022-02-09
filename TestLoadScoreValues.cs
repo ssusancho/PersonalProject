@@ -8,7 +8,7 @@ namespace TheHighScoreTracker
     {
         public static bool RunTest()
         {
-            List<int> scores = Program.LoadScoreValues("test_scores.txt");
+            List<int> scores = Program.LoadScoreValues("high_scores.txt");
 
             if (scores.Count != 3){
                 // TODO(jcollard 2022-02-02): Add a message to the tester stating
