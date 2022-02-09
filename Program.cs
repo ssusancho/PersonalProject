@@ -78,19 +78,22 @@ namespace TheHighScoreTracker
             if (filename != "high_scores.txt")
             {
                 Console.WriteLine("No such file");
-                return ;
+                return //where do I return this;
             }
             else
             {
-                List<int> values = Program.LoadScoreValues("high_scores.txt");
-                File.ReadLines("high_scores.txt");
-                foreach 
+                List<string> lines = File.ReadAllLines("high_scores.txt").ToList();
+                List<int> values;
+                while
                 {
-                    // GetScoreValue
-                    // result + values
+                    foreach (string lines in GetScoreValue)
+                    {
+                        //extract 2nd column as an int
+                        int + values;
+                    }
                 }
             }
-            return null;
+            return values;
 
         }
 
@@ -107,8 +110,12 @@ namespace TheHighScoreTracker
             // 2. Store the result in a variable called parts
             // 3. Parse the second element as an int int.Parse(parts[1])
             // 4. Return the result
-            
-            return -1; // Feedback(jcollard 2022-01-28): Changed from null to -1 (null is not an int)
+            string Split = scoreString;
+            string[] splitResult = scoreString.Split(' ');
+            List<string> parts = score;
+            //parse second element as an integer
+
+            return score; // Feedback(jcollard 2022-01-28): Changed from null to -1 (null is not an int)
         }
 
         /// <summary>
@@ -125,7 +132,19 @@ namespace TheHighScoreTracker
             //     * If the new score is greater than the current value, we should insert above that score so we return insertAt
             //     * Otherwise, the new score should not be inserted above this score so we increment insertAt by 1 and continue.
             // 3. If we reach the end of the list, insertAt should be the length of the list so we return insertAt.
-            return -1;
+            int insertAt = 0;
+            foreach (int score in values)
+            { 
+                if (newScore > //currentscore)
+                {
+                    return insertAt;
+                }
+                else
+                {
+                    insertAt += 1;
+                }
+            }
+            return insertAt;
         }
 
         /// <summary>
@@ -136,7 +155,7 @@ namespace TheHighScoreTracker
         /// <param name="score"></param>
         /// <param name="insertAt"></param>
         /// <param name="scores"></param>
-        public static void AddScore(String name, int score, int insertAt, List<String> scores)
+        public static void AddScore(String names, int score, int insertAt, List<String> scores)
         {
             //1. Create a string variable entry which will be the new row to add to the high score list.
             // 2. Assign entry to be $"{name} {score}"
@@ -145,6 +164,11 @@ namespace TheHighScoreTracker
             
             // return null; // Feedback(jcollard 2022-01-28): cannot return
             // anything from a void method
+            string entry = $"{names}{scores}";
+            scores.Insert(insertAt, entry);
+            File.WriteLine("high_scores.txt", scores);
+            return;
+
         }
         
     }
