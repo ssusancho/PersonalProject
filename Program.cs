@@ -75,21 +75,29 @@ namespace TheHighScoreTracker
             //     * For each line, use GetScoreValue to extract the second column as an int
             //     * Add the int to values
             // 6. Return values
-            if (filename != "high_scores.txt")
+
+            // TODO(jcollard 2022-02-09): I would recommend using:
+            // `if(File.Exists(filename) == false)` 
+            // File.Exists(string) returns true if the file exists and false otherwise.
+            if (filename != "high_scores.txt") 
             {
+                // TODO(jcollard 2022-02-09): Here you want to
+                // `throw new Exception("No such file");`
                 Console.WriteLine("No such file");
                 return //where do I return this;
             }
-            else
+            else 
             {
-                List<string> lines = File.ReadAllLines("high_scores.txt").ToList();
-                List<int> values;
-                while
+                List<string> lines = File.ReadAllLines("high_scores.txt").ToList(); // TODO(jcollard 2022-02-09): Use filename instead of "high_scores.txt"
+                List<int> values; 
+                // TODO(jcollard 2022-02-09): Add values = new List<int>();
+
+                while // TODO(jcollard 2022-02-09): I believe you can safely delete this while loop
                 {
-                    foreach (string lines in GetScoreValue)
+                    foreach (string lines in GetScoreValue) // TODO(jcollard 2022-02-09): try foreach (string line in lines)
                     {
                         //extract 2nd column as an int
-                        int + values;
+                        int + values; // TODO(jcollard 2022-02-09): You want to do something like: values.Add(GetScoreValue(line));
                     }
                 }
             }
@@ -110,11 +118,24 @@ namespace TheHighScoreTracker
             // 2. Store the result in a variable called parts
             // 3. Parse the second element as an int int.Parse(parts[1])
             // 4. Return the result
-            string Split = scoreString;
-            string[] splitResult = scoreString.Split(' ');
-            List<string> parts = score;
+            string Split = scoreString; // TODO(jcollard 2022-02-09): I believe you can safely delete this line
+
+            // TODO(jcollard 2022-02-09): you're super close here, you just need to use `score.Split(' ')` instead of scoreString
+            string[] splitResult = scoreString.Split(' '); 
+
+            // TODO(jcollard 2022-02-09): Next, you want to extract the elements
+            // from `splitResult`. In this case something like:
+            // string numString = splitResult[1];
+            
+            // Then, you need to convert it to an integer using
+            // int.ParseInt(numString)
+            
+            List<string> parts = score; // TODO(jcollard 2022-02-09): I don't think you need this line
             //parse second element as an integer
 
+            // TODO(jcollard 2022-02-09): The error here is stating that you
+            // cannot return a string because you have defined the method to
+            // return an integer.
             return score; // Feedback(jcollard 2022-01-28): Changed from null to -1 (null is not an int)
         }
 
@@ -135,7 +156,7 @@ namespace TheHighScoreTracker
             int insertAt = 0;
             foreach (int score in values)
             { 
-                if (newScore > //currentscore)
+                if (newScore > //currentscore) TODO(jcollard 2022-02-09): `score` instead of `currentScore`
                 {
                     return insertAt;
                 }
@@ -166,6 +187,7 @@ namespace TheHighScoreTracker
             // anything from a void method
             string entry = $"{names}{scores}";
             scores.Insert(insertAt, entry);
+            // TODO(jcollard 2022-02-09): Try: File.WriteAllLines("high_scores.txt", scores);
             File.WriteLine("high_scores.txt", scores);
             return;
 
