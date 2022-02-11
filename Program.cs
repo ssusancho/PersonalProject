@@ -15,6 +15,24 @@ namespace TheHighScoreTracker
                 return;
             }
             
+            Console.WriteLine($"Enter Name: ");
+            string name = Console.ReadLine();
+            Console.WriteLine($"Enter Score: ");
+            string score = Console.ReadLine();
+            List<int> scores = LoadScoreValues("high_scores.txt");
+            int scoreNum = GetScoreValue($"{name} {score}");
+
+            int insertAt = FindInsertionPoint(scores, scoreNum);
+            List<string> highscores = File.ReadAllLines("high_scores.txt").ToList();
+            AddScore(name, scoreNum, insertAt, highscores);
+            foreach (string line in highscores)
+            {
+                Console.WriteLine(line);
+            }
+            
+            
+
+
             // TODO(jcollard 2022-02-11): All that is left to do is connect
             // everything together:
             // 1. Prompt the user to enter their name.
@@ -153,7 +171,7 @@ namespace TheHighScoreTracker
 
             // return null; // Feedback(jcollard 2022-01-28): cannot return
             // anything from a void method
-            string entry = $"{names}{scores}";
+            string entry = $"{names} {score}";
             scores.Insert(insertAt, entry);
             File.WriteAllLines("high_scores.txt", scores);
             return;
