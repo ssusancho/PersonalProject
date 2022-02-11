@@ -24,7 +24,7 @@ namespace TheHighScoreTracker
 
             int insertAt = FindInsertionPoint(scores, scoreNum);
             List<string> highscores = File.ReadAllLines("high_scores.txt").ToList();
-            AddScore(name, scoreNum, insertAt, highscores);
+            AddScore(name, scoreNum, insertAt, highscores, "high_scores.txt");
             foreach (string line in highscores)
             {
                 Console.WriteLine(line);
@@ -162,7 +162,7 @@ namespace TheHighScoreTracker
         /// <param name="score"></param>
         /// <param name="insertAt"></param>
         /// <param name="scores"></param>
-        public static void AddScore(String names, int score, int insertAt, List<String> scores)
+        public static void AddScore(String names, int score, int insertAt, List<String> scores, string filename)
         {
             //1. Create a string variable entry which will be the new row to add to the high score list.
             // 2. Assign entry to be $"{name} {score}"
@@ -171,9 +171,10 @@ namespace TheHighScoreTracker
 
             // return null; // Feedback(jcollard 2022-01-28): cannot return
             // anything from a void method
+            names = names.Replace(" ", "");
             string entry = $"{names} {score}";
             scores.Insert(insertAt, entry);
-            File.WriteAllLines("high_scores.txt", scores);
+            File.WriteAllLines(filename, scores);
             return;
 
         }

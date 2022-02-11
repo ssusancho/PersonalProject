@@ -10,10 +10,10 @@ namespace TheHighScoreTracker
         {
             List<int> scores = Program.LoadScoreValues("high_scores.txt");
 
-            if (scores.Count != 3){
+            if (scores.Count != 4){
                 // TODO(jcollard 2022-02-02): Add a message to the tester stating
                 // what went wrong. For example:
-                Console.Error.WriteLine($"Failure: Expected the list of scores to have 3 elements but it had {scores.Count}.");
+                Console.Error.WriteLine($"Failure: Expected the list of scores to have 4 elements but it had {scores.Count}.");
                 return false;
             }
 
@@ -21,7 +21,7 @@ namespace TheHighScoreTracker
             {
                 // TODO(jcollard 2022-02-02): Add a message to the tester stating
                 // what went wrong.
-                Console.Error.WriteLine($"Failure: Expected the first score on the list to be 9001 but it was {scores}.");
+                Console.Error.WriteLine($"Failure: Expected the first score on the list to be 9001 but it was {scores[0]}.");
                 return false;
             }
 

@@ -33,7 +33,7 @@ namespace TheHighScoreTracker
             // File.WriteAllLines("test_add_scores.txt", initialScores);
 
             // Finally, call your method to test a new scenario
-            Program.AddScore("Susan", 5000, 0, initialScores);
+            Program.AddScore("Susan", 5000, 0, initialScores, "test_add_scores.txt");
             if (initialScores[0] != "Susan 5000")
             {
                 Console.Error.WriteLine($"Failure: Expected line one to be Susan 5000 but it was {"name, initialScores"}.");
@@ -45,16 +45,16 @@ namespace TheHighScoreTracker
             // 1. What should happen with Program.AddScore("Joseph Collard", 50, 5, initialScores)?
             // 2. What should happen with Program.AddScore("", 250, -5, initialScores)?
             // 3. What should happen with Program.AddScore("Sue", 1000, 0, initialScores)?
-            Program.AddScore("Joseph Collard", 50, 5, initialScores);
-            if (initialScores[5] != "JosephCollard 50" )
+            Program.AddScore("Joseph Collard", 50, 3, initialScores, "test_add_scores.txt");
+            if (initialScores[3] != "JosephCollard 50" )
             {
-                Console.Error.WriteLine($"Failure: Expected line 6 to be JosephCollard 50 but it was {"name, initialScores"}.");
+                Console.Error.WriteLine($"Failure: Expected line 6 to be JosephCollard 50 but it was {initialScores[3]}.");
                 return false;
             }
             
             try 
             {
-                Program.AddScore("", 250, -5, initialScores);
+                Program.AddScore("", 250, -5, initialScores, "test_add_scores.txt");
                 Console.Error.WriteLine($"Failure expected for insertAt -5.");
                 return false;
             }
