@@ -14,32 +14,13 @@ namespace TheHighScoreTracker
                 TestAll();
                 return;
             }
-            // Feedback(jcollard 2022-01-28): 
-            // Great job! Your method stubs look perfect. You should move on to
-            // Part 2.2 next.
-
-            // Below is an example of how to load the high_scores.txt file and
-            // extract the left and right columns
-
-            // This line loads the file and converts it to a list of strings
-            List<string> lines = File.ReadAllLines("high_scores.txt").ToList();
-
-            // Extract the 3rd line from the list
-            string collard = lines[2];
-
-            // Split the string into two elements
-            List<string> elems = collard.Split(" ").ToList();
-
-            // Get the first element
-            string name = elems[0];
-
-            // Get the second element
-            string scoreString = elems[1];
-
-            // Convert the score to an integer
-            int score = int.Parse(scoreString);
-
-            Console.WriteLine($"{name} {score}");
+            
+            // TODO(jcollard 2022-02-11): All that is left to do is connect
+            // everything together:
+            // 1. Prompt the user to enter their name.
+            // 2. Prompt the user to enter their score.
+            // 3. Call the methods you wrote and update the high score list.
+            // 4. Display all of the high scores
 
         }
 
@@ -81,8 +62,6 @@ namespace TheHighScoreTracker
             // File.Exists(string) returns true if the file exists and false otherwise.
             if (File.Exists(filename) == false)
             {
-                // TODO(jcollard 2022-02-09): Here you want to
-                // `throw new Exception("No such file");`
                 throw new Exception("No such file");
             }
             else
@@ -115,16 +94,8 @@ namespace TheHighScoreTracker
             // 4. Return the result
             // Console.WriteLine($"Checking {score}.");
 
-            // TODO(jcollard 2022-02-09): you're super close here, you just need to use `score.Split(' ')` instead of scoreString
             string[] parts = score.Split(' ');
-
-            // TODO(jcollard 2022-02-09): Next, you want to extract the elements
-            // from `splitResult`. In this case something like:
-            // string numString = splitResult[1];
             string numString = parts[1];
-
-            // Then, you need to convert it to an integer using
-            // int.ParseInt(numString)
             try
             {
                 int scoreNum = int.Parse(numString);
@@ -134,13 +105,6 @@ namespace TheHighScoreTracker
             {
                 throw new Exception($"Not a valid score");
             }
-
-            //parse second element as an integer
-
-            // TODO(jcollard 2022-02-09): The error here is stating that you
-            // cannot return a string because you have defined the method to
-            // return an integer.
-            // Feedback(jcollard 2022-01-28): Changed from null to -1 (null is not an int)
         }
 
         /// <summary>
@@ -191,7 +155,6 @@ namespace TheHighScoreTracker
             // anything from a void method
             string entry = $"{names}{scores}";
             scores.Insert(insertAt, entry);
-            // TODO(jcollard 2022-02-09): Try: File.WriteAllLines("high_scores.txt", scores);
             File.WriteAllLines("high_scores.txt", scores);
             return;
 
