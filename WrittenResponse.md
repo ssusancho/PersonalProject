@@ -157,7 +157,7 @@ LoadScoreValues(filename)
 
 Second call:
 
-LoadScoreValues()
+LoadScoreValues(String.empty)
 
 **TODO: Complete this section**
 
